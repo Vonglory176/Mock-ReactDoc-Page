@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Documentation</title>
+
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        #Helpful_tips code {
+            display: block;
+            margin: 16px;
+            padding:15px;
+            background-color: #f7f7f7;
+            white-space: pre-line;
+        }
+
+        nav a {color:white;}
+
+        nav a:hover{color: gray;}
+
+        p, li {margin: 0 15px 16px 15px}
+
+        #main-doc {
+            display: flex;
+            flex-direction: column;          
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .navbar {
+            padding:0 !important;
+        }
+
+        #navbar div header {
+            /* padding-top:10px; */
+            text-align: center;
+            display: flex;
+        }
+
+        nav div header h3 {margin:0;}
+
+        #navbar div a:not(:last-child) {
+            border-bottom: 3px solid grey;
+        }
+
+        #navbar div div {
+            padding:0 !important;
+        }
+
+        #main-doc div {
+            padding: 15px;
+        }
+
+        section:nth-child(1) img, section img:nth-child(2) {margin-bottom:16px;}
+
+        section img {
+          border-radius: 15px;
+      }
+
+        @media (max-width:450px) {
+            #navbar {min-width:371px;}
+            nav img {display: none;}
+            section:first-child {margin-top: 60px !important;}
+        }
+
+        @media (max-width:767px) {
+            #navbar {
+                width: 100%;
+                position: fixed;
+                top:0;
+                z-index: 5;
+            }
+            #navbar a:first-child {
+                border-top: 3px solid grey;
+                margin-top: 10px;
+            }
+
+            section:first-child {margin-top: 72px;}
+
+            #innerNav {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        @media (min-width:768px) and (max-width:1499px) {
+            #main-doc {
+                flex-direction: row;
+                height: 100vh;
+            }
+            #main-doc div {
+                overflow: auto;
+            }
+
+            #navbar div {
+                flex-direction: column;
+                width: 275px !important;
+                gap:0;
+            }
+
+            #navbar {
+                border-right: 2px solid grey;
+                width: min-content;
+            }
+
+            #navbar header {
+                padding: 0 0 10px 0;
+                border-bottom: 3px solid grey;
+            } 
+            
+            #navbar div div {
+                flex-direction: column;
+                /* justify-content: end; */
+            }
+
+            #navbar div div a {
+                width:100%;
+            }
+        }
+
+        @media (min-width:1500px) {
+            header {
+                padding: 0 !important;
+                /* width: 275px; */
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding-top:10px;
+            }
+
+            #navbar div {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            #navbar div div {
+                display: flex;
+                flex-direction: row;
+            }
+
+            nav div a {
+                border: 3px solid grey;
+                width: max-content;
+                margin: 10px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <main id="main-doc" style="min-width: 371px;">
+        <nav id="navbar" class="bg-dark shadow-sm">
+            <div id="innerNav" class="navbar navbar-dark navbar-expand-md">
+                <header class="d-flex align-items-center justify-content-center text-light">
+                    <image class="img-fluid" style="max-width: 60px; max-height: 60px;" alt="React Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"></image>
+                    <h3 class="text-left">React Documentation</h3>
+                </header>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <a class="nav-link" href="#Summary">Summary</a>
+                    <a class="nav-link" href="#Skills_and_prerequisites">Skills and prerequisites</a>
+                    <a class="nav-link" href="#Implementation">Implementation</a>
+                    <a class="nav-link" href="#Pros_and_cons">Pros and cons</a>
+                    <a class="nav-link" href="#Website_resources">Website resources</a>
+                    <a class="nav-link" href="#Helpful_tips">Helpful tips</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="text-light bg-dark" style="width:100%; padding:0 !important;">
+            <div style="max-width: 1095px; margin-left:auto; margin-right:auto">
+                <section class="main-section" id="Summary">
+                    <header><h3>Summary</h3></header>
+                    <p>React is a free and open-source JavaScript library that can be used to create applications for web, mobile and desktop. Developed and released by Facebook in May of 2013, React has grown to be the single most popular and widely used library out of its competitors and offers a wide array of tools to aid developers in building their projects. </p>
+    
+                    <img class="img-fluid" alt="People standing around a large React logo" src="https://kinsta.com/wp-content/uploads/2022/06/what-is-react-js-feature-image.png">
+                </section>
+                <section class="main-section" id="Skills_and_prerequisites">
+                    <header><h3>Skills and prerequisites</h3></header>
+                    <p>Built around JavaScript and with primary focus on web applications, getting started with React requires good understanding of HTML, CSS, JavaScript itself especially, the Command Line and use/installation of Node/Node Package Manager. </p>
+                </section>
+                <section class="main-section" id="Implementation">
+                    <header><h3>Implementation</h3></header>
+                    <p>Node package manager is what you’ll use to install your React Application as well as any extra additions (like Bootstrap) within it, only needing to run the "<code>npm install -g create-react-app</code>" command in your Command Line to create a basic starting template. Once installation is finished, you’ll have a project folder with some basic structuring to start working in, only then needing to Command Line “<code>cd</code>” inside the new folder and enter “<code>npm start</code>” to run the application.</p>
+    
+                    <p>You might not need a library of this caliber for very small and simple projects, but it’ll save a lot of time and headache in helping manage larger ones with complicated and heavily interactable UI.</p>
+                </section>
+                <section class="main-section" id="Pros_and_cons">
+                    <header><h3>Pros and cons</h3></header>
+                    <img class="img-fluid" alt="React and Angular cartoon mascots fighting" src="https://railsware.com/blog/wp-content/uploads/2018/05/React-VS-Angular.jpg">
+                    <ul>
+                        <h6>Pros</h6>
+                        <li>Being as popular as it is, React has massive community support and you’ll find lots of help troubleshooting and learning to use it.</li>
+                        <li>React is very flexible and adaptable in the way it works, giving developers a lot of freedom in the way they want to utilize it. </li>
+                        <li>The learning curve isn’t bad at all, and so long as you have decent understanding of programming, it’ll only take a few weeks at most to get things down.</li>
+                        <li>React uses Virtual DOM to keep application rendering incredibly fast and efficient.</li>
+                        <li>Great for UI creation through the use of custom and reusable components.</li>
+                    </ul>
+                    <ul>
+                        <h6>Cons</h6>
+                        <li>The rapid development of React can lead to some issues for those trying to use it, as changes/additions to tools and the way code functions can leave older React Applications with compatibility issues and bugs. On top of this, proper and fully flushed out documentation can also be lacking at times as it takes some to write/update.</li>
+                        <li>While the flexibility and open-endedness of React offers a lot of freedom, it can also be a double edge sword. Where one might already have a general idea of what to expect from more streamlined and convention heavy frameworks, the lack of such here may have React Developers that’re moving from one team to another needing to take extra time to learn new development processes/standards.</li>
+                        <li>Unlike actual full fledged frameworks like Angular, React only touches on the UI portions of an application and nothing more, which may require developers to find and incorporate extra tools to fully flush things out.</li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Website_resources">
+                    <header><h3>Website resources</h3></header>
+                    <p>You do of course have the official documentation site right <a href="https://legacy.reactjs.org/docs/getting-started.html">here</a>, covering everything from installation to simple concepts and the advanced.</p>
+                    <p>W3Schools also has comprehensive information and tutorials to help learn from <a href="https://www.w3schools.com/REACT/DEFAULT.ASP">here</a>.</p>
+                    <p>Much like with the responsive design course, freecodecamp has both tutorials and a nice roadmap to help fully plot out what you need to do and learn to get fully up and running with react <a href="https://www.freecodecamp.org/news/react-fundamentals-for-beginners/">here</a>.</p>
+                </section>
+                <section class="main-section" id="Helpful_tips">
+                    <header><h3>Helpful tips</h3></header>
+                    <p>As previously mentioned, you can create a React Application using this Npm command in the Command Line.</p>
+                    <code>npm install -g create-react-app</code>
+                    <p>You can then start your React Application with this command</p>
+                    <code>npm start</code>
+                    <p>This command here is for compiling your application into a production build. In doing so it creates a new folder, automatically translating the code for browers through babel and compressing/minifying the project for performance and download efficiency</p>
+                    <code>npm run build</code>
+                    <img class="img-fluid" alt="A laptop and web browser with Node and NPM logos on them" src="https://miro.medium.com/v2/resize:fit:1400/1*n04DXe4L4d-1zhDE2EtUQA.jpeg">
+                </section>
+                <footer style="padding-top:16px; text-align: center;">
+                    <h6 style="margin:0;">By Skyler Conley - 5/31/23 - Keith Rowley's BATECH 289</h6>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script>
+          window.addEventListener("hashchange", () => {
+              if (screen.width >= 1500) scrollBy(0,-parseInt($("#navbar").css("height")))
+          })
+      </script>
+</body>
+</html>
